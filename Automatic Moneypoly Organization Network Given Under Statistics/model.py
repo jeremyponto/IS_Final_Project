@@ -55,18 +55,18 @@ class_feature_predictions = model.predict(feature_test_data)
 # Display the accuracy score to see how well the model can predict.
 print("Accuracy score: ", accuracy_score(class_feature_test_data, class_feature_predictions))
 
-# # Create a dot file in which the tree will be exported.
-# dot_data = StringIO()
-# # Export the tree to the dot file.
-# export_graphviz(model, out_file = dot_data, filled = True, rounded = True, special_characters = True, feature_names = features, class_names = ['0', '1'])
-# # Get the tree from the dot file.
-# graph = graph_from_dot_data(dot_data.getvalue())
-# # Insert the tree to a png file.
-# graph.write_png("buy_property.png")
-# # Create a png file which contains the tree.
-# Image(graph.create_png())
+# Create a dot file in which the tree will be exported.
+dot_data = StringIO()
+# Export the tree to the dot file.
+export_graphviz(model, out_file = dot_data, filled = True, rounded = True, special_characters = True, feature_names = features, class_names = ['0', '1'])
+# Get the tree from the dot file.
+graph = graph_from_dot_data(dot_data.getvalue())
+# Insert the tree to a png file.
+graph.write_png("buy_property.png")
+# Create a png file which contains the tree.
+Image(graph.create_png())
 
-# # Export the trained model to a joblib file.
-# dump(model, "model.joblib")
-# # Use the existing trained model from a joblib file.
-# model = load("model.joblib")
+# Export the trained model to a joblib file.
+dump(model, "model.joblib")
+# Use the existing trained model from a joblib file.
+model = load("model.joblib")
