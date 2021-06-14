@@ -36,14 +36,13 @@ class_feature_data = data.buy_property
 print(class_feature_data.head(class_feature_data.shape[0]))
 print()
 
-# Split the datasets into 80% train data and 20% test data.
+# Split the datasets into 80% train data and 20% test data randomly.
 (feature_train_data,
  feature_test_data,
  class_feature_train_data,
  class_feature_test_data) = train_test_split(feature_data,
                                              class_feature_data,
-                                             test_size = 0.2,
-                                             random_state = 1)
+                                             test_size = 0.2)
 # Display the contents and the amount of data of feature train data.
 print(feature_train_data.head(feature_train_data.shape[0]))
 print()
@@ -67,9 +66,9 @@ plot_tree(model)
 # Make the model predict the class feature values based on the feature test data.
 class_feature_predictions = model.predict(feature_test_data)
 # Display the class feature predictions of the model.
-print("Class feature predictions: ", class_feature_predictions)
+print("Class feature predictions:", class_feature_predictions)
 # Display the accuracy score to see how well the model can predict.
-print("Accuracy score: ", accuracy_score(class_feature_test_data, class_feature_predictions))
+print("Accuracy score:", accuracy_score(class_feature_test_data, class_feature_predictions))
 
 # Create a dot file in which the tree will be exported.
 dot_data = StringIO()
