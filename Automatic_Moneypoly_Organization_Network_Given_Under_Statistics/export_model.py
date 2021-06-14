@@ -19,25 +19,22 @@ from joblib import dump
 
 # Read the dataset given.
 data = pd.read_csv("buy_property.csv")
-# Display the contents of the dataset.
-print(data.head())
-# Display the amount of data in the dataset.
-print(data.shape[0])
+# Display the contents and the amount of data of the dataset.
+print(data.head(data.shape[0]))
+print()
 
 # List the features of the dataset.
 features = ["money_left", "property_cost", "opponent_average", "go_distance", "opponent_house_distance"]
-# Split the dataset into feature_data which will be the condition of the class feature
+# Split the dataset into feature_data which will be the condition of the class feature.
 feature_data = data[features]
-# Display the contents of feature data.
-print(feature_data.head())
-# Display the the amount of data in feature data.
-print(feature_data.shape[0])
+# Display the contents and the amount of data of feature data.
+print(feature_data.head(feature_data.shape[0]))
+print()
 # Split the dataset into class_feature_data whose value will be based on the features.
 class_feature_data = data.buy_property
-# Display the contents of class feature data.
-print(class_feature_data.head())
-# Display the the amount of data in class feature data.
-print(class_feature_data.shape[0])
+# Display the contents and the amount of data of class feature data.
+print(class_feature_data.head(class_feature_data.shape[0]))
+print()
 
 # Split the datasets into 80% train data and 20% test data.
 (feature_train_data,
@@ -47,23 +44,18 @@ print(class_feature_data.shape[0])
                                              class_feature_data,
                                              test_size = 0.2,
                                              random_state = 1)
-# Display the contents of feature train data.
-print(feature_train_data.head())
-# Display the amount of data in feature train data.
-print(feature_train_data.shape[0])
-# Display the contents of feature test data.
-print(feature_test_data.head())
-# Display the amount of data in feature test data.
-print(feature_test_data.shape[0])
-# Display the contents of class feature train data.
-print(class_feature_train_data.head())
-# Display the amount of data in class feature train data.
-print(class_feature_train_data.shape[0])
-# Display the contents of class feature test data.
-print(class_feature_test_data.head())
-# Display the amount of data in class feature test data.
-print(class_feature_test_data.shape[0])
-
+# Display the contents and the amount of data of feature train data.
+print(feature_train_data.head(feature_train_data.shape[0]))
+print()
+# Display the contents and the amount of data of feature test data.
+print(feature_test_data.head(feature_test_data.shape[0]))
+print()
+# Display the contents and the amount of data of class feature train data.
+print(class_feature_train_data.head(class_feature_train_data.shape[0]))
+print()
+# Display the contents and the amount of data of class feature test data.
+print(class_feature_test_data.head(class_feature_test_data.shape[0]))
+print()
 
 # Create a decision tree classifier model with a maximum depth of 3
 # which uses the information gain criterion for the tree formation.
