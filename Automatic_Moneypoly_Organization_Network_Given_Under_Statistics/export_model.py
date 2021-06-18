@@ -70,7 +70,8 @@ plot_tree(model2)
 class_feature_predictions = model.predict(feature_test_data)
 class_feature_predictions2 = model2.predict(feature_test_data)
 # Display the class feature predictions of the model.
-print("Class feature predictions:", class_feature_predictions)
+print("Class feature predictions entropy:", class_feature_predictions)
+print("Class feature predictions gini:", class_feature_predictions2)
 # Display the accuracy score to see how well the model can predict.
 print("Accuracy score entropy:", accuracy_score(class_feature_test_data, class_feature_predictions))
 print("Accuracy score gini:", accuracy_score(class_feature_test_data, class_feature_predictions2))
