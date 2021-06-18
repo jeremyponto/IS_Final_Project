@@ -77,9 +77,17 @@ print("Accuracy score gini:", accuracy_score(class_feature_test_data, class_feat
 
 # Create a dot file in which the tree will be exported.
 dot_data = StringIO()
+dot_data2 = StringIO()
 # Export the tree to the dot file.
-export_graphviz(model2,
+export_graphviz(model,
                 out_file = dot_data,
+                filled = True,
+                rounded = True,
+                special_characters = True,
+                feature_names = features,
+                class_names = ['0', '1'])
+export_graphviz(model2,
+                out_file = dot_data2,
                 filled = True,
                 rounded = True,
                 special_characters = True,
@@ -87,10 +95,13 @@ export_graphviz(model2,
                 class_names = ['0', '1'])
 # Get the tree from the dot file.
 graph = graph_from_dot_data(dot_data.getvalue())
+graph2 = graph_from_dot_data(dot_data2.getvalue())
 # Insert the tree to a png file.
-graph.write_png("buy_property.png")
+graph.write_png("model.png")
+graph2.write_png("model2.png")
 # Create a png file which contains the tree.
 Image(graph.create_png())
+Image(graph2.create_png())
 
 # Export the trained model to a joblib file.
 dump(model, "model.joblib")
